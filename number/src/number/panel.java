@@ -27,6 +27,7 @@ public class panel extends JPanel{
     String []s = {"+", "-", "*","/"};
     
     panel(){
+        setLayout(new BorderLayout());
         result=new JTextArea (5,20);
         top=new JPanel();
         under=new JScrollPane(result);
@@ -49,12 +50,12 @@ public class panel extends JPanel{
         top.add(combo);
         top.add(second);
         top.add(count);
-        add(top);
-       // under.add(result);
-        add(under);
-        System.out.println(firstnum);
-        System.out.println(secondnum);
-        System.out.println(fu);
+        add(top,BorderLayout.NORTH);
+        add(under,BorderLayout.CENTER);
+  
+        // System.out.println(firstnum);
+        // System.out.println(secondnum);
+        // System.out.println(fu);
     }
     private class countListener implements ActionListener {
 
