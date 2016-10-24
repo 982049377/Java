@@ -37,7 +37,7 @@ public class Panel extends JPanel {
         top.setLayout(new GridLayout(1, 2));
 
         red_button = new JButton("red");
-        green_button = new JButton("grees");
+        green_button = new JButton("green");
         red_button.addActionListener(new redl());
         green_button.addActionListener(new greenl());
 
@@ -154,7 +154,7 @@ public class Panel extends JPanel {
                 if (line.get(i + 1).getX() == -1 && line.get(i + 1).getY() == -1) {
                     // System.out.println("zradjaskdja");
                     i = i + 2;
-                    start = new Point();
+                    start =new Point();
                     end = new Point();
                 } //else {
                 
