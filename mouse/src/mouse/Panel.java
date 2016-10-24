@@ -140,7 +140,7 @@ public class Panel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-         super.paintComponent(g);
+        super.paintComponent(g);
         g.setColor(k);
         if (Status == 0) {
             //g.fillRect(X1,Y1,X2-X1,Y2-Y1);
