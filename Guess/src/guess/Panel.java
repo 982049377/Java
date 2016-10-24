@@ -21,8 +21,9 @@ public class Panel extends JPanel {
     private JLabel label;
     private int i=(int)(Math.random()*10)+1;
     private JButton JB;
-    
+    private JOptionPane jop;
     public Panel(){
+        jop=new JOptionPane();
         //JPf=new JPanel();
         add(new JLabel("从0到10猜数"));
         setBackground(Color.yellow);
@@ -63,10 +64,12 @@ public class Panel extends JPanel {
             catch(NumberRangeException ee){ 
                 String answerStr=ee.getMessage(); 
                 label.setText(answerStr);
+                jop.showMessageDialog(null,answerStr);
             } 
              catch(Exception e ){
                 String answerStr="输入的必须是数字";
                 label.setText(answerStr);
+                jop.showMessageDialog(null,answerStr);
             }
         }
          public void Checknum()throws NumberRangeException { 
