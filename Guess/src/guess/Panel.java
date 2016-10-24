@@ -4,19 +4,11 @@
  * and open the template in the editor.
  */
 package guess;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
 import java.lang.*;
 import java.util.Scanner;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 /**
  *
  * @author HP-PC
@@ -53,16 +45,35 @@ public class Panel extends JPanel {
     private class TempListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent event) {
-            String tempn=txt.getText();
-            n = Integer.parseInt (tempn);
-            if(n==i)
-                label.setText("正确");
-            else if(n<i)
-                label.setText("猜小了");
-            else
-                label.setText("猜大了");
-            System.out.println("111n"+n);
-            // JButton 
+            try{
+                String tempn=txt.getText();
+                n = Integer.parseInt (tempn);
+               // n=Integer.valueOf(txt.getText());
+                if(n==i)
+                    label.setText("正确");
+                else if(n<i)
+                    label.setText("猜小了");
+                else
+                    label.setText("猜大了");
+                System.out.println("111n"+n);
+                // JButton 
+                Checknum();
+            }
+          
+            catch(NumberRangeException ee){ 
+                String answerStr=ee.getMessage(); 
+                label.setText(answerStr);
+            } 
+             catch(Exception e ){
+                String answerStr="输入的必须是数字";
+                label.setText(answerStr);
+            }
+        }
+         public void Checknum()throws NumberRangeException { 
+            if((n<0)||(n>10)){ 
+                NumberRangeException ee= new NumberRangeException("第二个输入的数字不在指定的范围！请重新输入."); 
+                throw ee; 
+            } 
         }
     }
   /*  class PushCounterPanel extends JButton{
