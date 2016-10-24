@@ -90,15 +90,57 @@ public class panel extends JPanel{
     private class firstListener implements ActionListener {
 
         public void actionPerformed(ActionEvent event) {
-            firstnum=Integer.parseInt (first.getText());
-            System.out.println("jianting"+firstnum);
+            try{
+                //firstnum=Integer.valueOf(first.getText());
+                firstnum=Float.valueOf(first.getText());
+                Checkfirstnum( );
+            }
+          
+            catch(NumberRangeException ee){ 
+                String answerStr=ee.getMessage(); 
+                result.setText(answerStr);
+            }
+              catch (Exception e){
+                String answerStr="输入的必须是数字,第一个不为数字";
+                result.setText(answerStr);
+                System.out.println("jianting"+firstnum);
+            }
+            
         }
+        public float Checkfirstnum()throws NumberRangeException { 
+            if((firstnum<0)||(firstnum>100)){ 
+                NumberRangeException ee= new NumberRangeException("第一个输入的数字不在指定的范围！请重新输入."); 
+                throw ee; 
+            } 
+            return firstnum;
+        }
+
     }
     private class secondListener implements ActionListener {
 
         public void actionPerformed(ActionEvent event) {
-            secondnum=Integer.parseInt (second.getText());
-            System.out.println("jianting"+secondnum);
+            try{
+                secondnum=Integer.parseInt (second.getText());
+                System.out.println("jianting"+secondnum);
+                Checksecondnum( );
+            }
+            
+            catch(NumberRangeException ee){ 
+                String answerStr=ee.getMessage(); 
+                result.setText(answerStr);
+            } 
+             catch (Exception e){
+                String answerStr="输入的必须是数字,第一个不为数字";
+                result.setText(answerStr);
+                System.out.println("jianting"+firstnum);
+            }
+        }
+         public float Checksecondnum()throws NumberRangeException { 
+            if((secondnum<0)||(secondnum>100)){ 
+                NumberRangeException ee= new NumberRangeException("第二个输入的数字不在指定的范围！请重新输入."); 
+                throw ee; 
+            } 
+            return secondnum;
         }
     }
     private class Change implements ActionListener{
