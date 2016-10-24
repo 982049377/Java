@@ -148,19 +148,23 @@ public class Panel extends JPanel {
 
         }
         if (Status == 1) {
-            //  Point stop=new Point(-1,-1);
             for (int i = 0; i <= line.size() - 2; i++) {
                 
-                if (line.get(i + 1).getX() == -1 && line.get(i + 1).getY() == -1) {
+                if (line.get(i + 1).getX() == -1 && line.get(i + 1).getY() == -1&& i+3<line.size()) {
                     // System.out.println("zradjaskdja");
                     i = i + 2;
                     start =new Point();
                     end = new Point();
                 } //else {
                 
+                if (line.get(i + 1).getX() == -1 && line.get(i + 1).getY() == -1&& i+2==line.size()) { 
+                   start = new Point();
+                   end = new Point();
+                   continue;
+                } 
                     start = line.get(i);
                     end = line.get(i + 1);
-                   // System.out.println(start.getX()+"%%%" + start.getY());
+                    //System.out.println(start.getX()+"%%%" + start.getY());
                    // System.out.println(end.getX()+"###" + end.getY());
                     g.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
                // }
