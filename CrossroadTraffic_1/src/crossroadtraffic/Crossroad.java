@@ -17,19 +17,16 @@ import java.util.Random;
  */
 public class Crossroad extends JPanel {
 
-    private ArrayList<Car> Carlist = new ArrayList<>();
+    //private ArrayList<Car> Carlist;
     public TrafficLight South, East;
     Timer timer;
-    private ArrayList<OneRoad> Roadlist = new ArrayList<OneRoad>();
-    final static int roadside1 = 150;
-    final static int roadside2 = 400;
+    private ArrayList<OneRoad> OneRoadlist = new ArrayList<OneRoad>();
+    // public Crossroad(ArrayList<Car> cl,ArrayList<OneRoad> Rl){
 
-    public Crossroad(ArrayList<Car> cl,ArrayList<OneRoad> Rl){
-//    public Crossroad(ArrayList<OneRoad> Rl) {
-//        Carlist = new ArrayList<>();
+    public Crossroad(ArrayList<OneRoad> Rl) {
         setLayout(null);
-        Carlist=cl;
-        Roadlist = Rl;
+        //Carlist=cl;
+        OneRoadlist = Rl;
         setPreferredSize(new Dimension(400, 100));
         setBackground(Color.LIGHT_GRAY);
         South = new TrafficLight(180, 60);
@@ -50,8 +47,8 @@ public class Crossroad extends JPanel {
     }
 
     public void call(ArrayList<OneRoad> Rl) {
-        Roadlist.clear();;
-        Roadlist = Rl;
+        OneRoadlist.clear();;
+        OneRoadlist = Rl;
     }
 //有黄变绿和有黄变红的区别量
     private int su = 1;
@@ -89,17 +86,9 @@ public class Crossroad extends JPanel {
         g.fillRect(400, 0, 600, 150);
         g.fillRect(0, 400, 150, 600);
         g.fillRect(400, 400, 600, 600);
-        for (OneRoad i : Roadlist) {
+        for (OneRoad i : OneRoadlist) {
             i.draw(g);
         }
-        for (Car i : Carlist) {
-            i.draw(g);
-        //    System.out.println(i.y);
-        }
-        
-       // System.out.println("画");
-//        System.out.println("OneRoadlist.length" + OneRoadlist.size());
-
     }
 
 }

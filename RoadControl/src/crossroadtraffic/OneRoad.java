@@ -7,6 +7,8 @@ package crossroadtraffic;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.Random;
 
 enum Roadhead {
     SouthToNorth,
@@ -27,22 +29,22 @@ public class OneRoad {
     }
     public void draw(Graphics g) {
         g.setColor(Color.yellow);
-        int width=50;
-        switch(head){
-            case  NorthToSouth:
+        int width = 50;
+        switch (head) {
+            case NorthToSouth:
                 g.fillRect(x, y, width, roadlong);
                 //System.out.println("NorthToSouth.width"+width);
                 break;
-            case  SouthToNorth:
+            case SouthToNorth:
                 g.fillRect(x, y, width, roadlong);
                 //System.out.println("SouthToNorth.width"+width);
                 break;
-            case  EastToWest:
-                g.fillRect(x, y, roadlong,width);
+            case EastToWest:
+                g.fillRect(x, y, roadlong, width);
                 //System.out.println("EastToWest.width"+width);
                 break;
-            case   WestToEast:
-                g.fillRect(x, y, roadlong,width);
+            case WestToEast:
+                g.fillRect(x, y, roadlong, width);
                 //System.out.println("WestToEast.width"+width);
                 break;
         }
@@ -52,6 +54,6 @@ public class OneRoad {
         return roadlong;
     }
     public void setroadlong(int roadlong) {
-        this.roadlong =roadlong;
+        this.roadlong = roadlong;
     }
 }
